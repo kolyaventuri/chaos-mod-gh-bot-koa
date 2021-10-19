@@ -1,4 +1,8 @@
-import {creatorsRegex, defaultTitles, effectsRegex} from '../../constants/issues';
+import {
+  creatorsRegex,
+  defaultTitles,
+  effectsRegex,
+} from '../../constants/issues';
 import {IssueProblem, IssueType} from './types';
 
 interface GetIssueProblemsArgs {
@@ -9,7 +13,11 @@ interface GetIssueProblemsArgs {
 
 const tagRegex = /^\[(.+)]/i;
 
-export const getIssueProblems = ({title, body, type}: GetIssueProblemsArgs): IssueProblem[] => {
+export const getIssueProblems = ({
+  title,
+  body,
+  type,
+}: GetIssueProblemsArgs): IssueProblem[] => {
   title = title.toLowerCase().replace(/\s+/g, ' ').trim();
   body = body.toLowerCase().replace(/\s+/g, ' ');
 

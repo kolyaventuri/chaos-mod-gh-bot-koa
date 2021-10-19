@@ -6,7 +6,10 @@ type I18N = {
 };
 /* eslint-enable @typescript-eslint/consistent-indexed-object-style */
 
-export const getString = (path: string, replacement: Record<string, string> = {}): string => {
+export const getString = (
+  path: string,
+  replacement: Record<string, string> = {},
+): string => {
   const parts = path.trim().split('.');
   let current: I18N | string = strings as I18N;
 

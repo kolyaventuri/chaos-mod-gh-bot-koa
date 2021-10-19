@@ -1,4 +1,4 @@
-/* import issueHandler from '../../../handlers/v1/issue';
+/* Import issueHandler from '../../../handlers/v1/issue';
 import {Issue} from '../../../utils/issue/types';
 
 export const handleHook = async (event: AWSLambda.APIGatewayEvent): Promise<AWSLambda.APIGatewayProxyResult> => {

@@ -4,11 +4,7 @@ import {Issue, IssueDetails, IssueStatus} from './types';
 
 export const getIssueDetails = (issue: Issue): IssueDetails => {
   const {
-    issue: {
-      title,
-      body,
-      labels,
-    },
+    issue: {title, body, labels},
   } = issue;
   const type = getIssueType(labels);
   const problems = getIssueProblems({title, body, type});

@@ -1,18 +1,22 @@
+import process from 'process';
 import {request} from '@octokit/request';
 import {getMessage} from '../../utils/github/message';
 import {getIssueDetails} from '../../utils/issue/details';
 import {Issue, IssueStatus} from '../../utils/issue/types';
 
 const doPostComment = async (data: Issue, body: string): Promise<void> => {
-  const result = await request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
-    headers: {
-      authorization: `token ${process.env.GH_ACCESS_TOKEN!}`,
+  const result = await request(
+    'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
+    {
+      headers: {
+        authorization: `token ${process.env.GH_ACCESS_TOKEN!}`,
+      },
+      owner: data.repository.owner.login,
+      repo: data.repository.name,
+      issue_number: data.issue.number,
+      body,
     },
-    owner: data.repository.owner.login,
-    repo: data.repository.name,
-    issue_number: data.issue.number,
-    body,
-  });
+  );
 
   if (result.status !== 201) {
     throw new Error('Something went wrong posting the comment.');
@@ -21,7 +25,7 @@ const doPostComment = async (data: Issue, body: string): Promise<void> => {
 
 const handler = async (data: Issue): Promise<void> => {
   if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line unicorn/prefer-module, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+    // eslint-disable-next-line unicorn/prefer-module, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-call
     require('dotenv').config();
   }
 
