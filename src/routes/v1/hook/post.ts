@@ -1,6 +1,5 @@
-import runWarm from '../../utils/run-warm';
-import issueHandler from '../../handlers/v1/issue';
-import {Issue} from '../../utils/issue/types';
+/* import issueHandler from '../../../handlers/v1/issue';
+import {Issue} from '../../../utils/issue/types';
 
 export const handleHook = async (event: AWSLambda.APIGatewayEvent): Promise<AWSLambda.APIGatewayProxyResult> => {
   const {body} = event;
@@ -36,4 +35,6 @@ export const handleHook = async (event: AWSLambda.APIGatewayEvent): Promise<AWSL
   };
 };
 
-export const handler = runWarm(handleHook);
+export const handler = runWarm(handleHook); */
+
+export {};
