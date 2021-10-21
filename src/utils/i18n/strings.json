@@ -14,5 +14,6 @@
     "EFFECT": "effect suggestion",
     "FEATURE": "feature request",
     "BUG": "bug report"
-  }
+  },
+  "submission": "submission"
 }
