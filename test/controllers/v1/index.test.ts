@@ -22,15 +22,13 @@ test.before(async (t) => {
   console.log(`Using port ${port} for testing...`);
 
   process.env.PORT = `${port}`;
-  const app = proxyquire<{default: Server}>('../../../src', {
-    './controllers': {
-      './v1': {
-        '../handlers/v1/hook': {
-          default: hookHandler,
-        },
-      },
+  const stubs = {
+    './handlers/v1/hook': {
+      default: hookHandler,
+      '@global': true,
     },
-  }).default;
+  };
+  const app = proxyquire<{default: Server}>('../../../src', stubs).default;
 
   t.context.app = app;
   t.context.port = port;
@@ -47,4 +45,12 @@ test('a call to /v1/healthcheck returns a 200', async (t) => {
 
   t.is(result.status, 200);
   t.is(result.text, 'page ok');
+});
+
+test('a POST to /v1/hook calls the hook handler', async (t) => {
+  const data = {mockData: true};
+  await request(t.context.app).post('/v1/hook').send(data);
+
+  t.true(hookHandler.called);
+  t.deepEqual(hookHandler.lastCall.args[0].request.body, data);
 });

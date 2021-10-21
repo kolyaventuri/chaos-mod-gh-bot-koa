@@ -11,6 +11,6 @@ router.get('/healthcheck', async (ctx, next) => {
   await next();
 });
 
-router.get('/hook', hookHandler);
+router.post('/hook', hookHandler);
 
 export default router;
