@@ -25,7 +25,11 @@ ex:
 1) Generate a personal access token for your GitHub bot user
 2) Deploy, push, or otherwise upload the app to your platform / host of choice
 3) Ensure your host has `GH_ACCESS_TOKEN` set to your bots personal access token. Either as an uploaded `.env` file, or setting the environment variable directly.
-4) Run with `npm start`, preferably with a process manager like [PM2](https://pm2.keymetrics.io/) or PaaS like [Dokku](https://dokku.com/)
+4) Configure `npm run build` as a pre-start / build stage before you start the app
+5) Run with `npm start`, preferably with a process manager like [PM2](https://pm2.keymetrics.io/) or PaaS like [Dokku](https://dokku.com/)
+
+
+*Note*: Alternatively, start the app with `npm run build-and-start` to achieve the same effect
 
 # Q + A
 ### Why AVA? Why not Jest?
