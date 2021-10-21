@@ -6,7 +6,7 @@
       "esnext"
     ],
     "downlevelIteration": true,
-    "allowJs": false,
+    "allowJs": ,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

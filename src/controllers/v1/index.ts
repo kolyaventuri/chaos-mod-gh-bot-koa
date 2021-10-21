@@ -1,5 +1,7 @@
 import Router from 'koa-router';
 
+import hookHandler from '../../handlers/v1/hook';
+
 const router = new Router();
 
 router.get('/healthcheck', async (ctx, next) => {
@@ -8,5 +10,7 @@ router.get('/healthcheck', async (ctx, next) => {
 
   await next();
 });
+
+router.get('/hook', hookHandler);
 
 export default router;

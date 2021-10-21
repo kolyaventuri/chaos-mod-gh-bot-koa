@@ -12,6 +12,8 @@ app.use(logger());
 
 app.use(controllers.routes()).use(controllers.allowedMethods());
 
-app.listen(APP_PORT, () => {
+const server = app.listen(APP_PORT, () => {
   console.log('Server started');
 });
+
+export default server;

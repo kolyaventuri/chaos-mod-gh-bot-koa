@@ -13,7 +13,7 @@ export default {
   ],
   require: [
     'esm',
-    'ts-node/register',
+    'ts-node/register/transpile-only',
     'tsconfig-paths/register'
   ]
 }
