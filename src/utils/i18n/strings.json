@@ -1,0 +1,18 @@
+{
+  "messageBase": "Hi there! It looks like your {type} has a problem.",
+  "messageBaseMultiple": "Hi there! It looks like your {type} has some problems.",
+  "messageFooter": "If this message seems to be in error, feel free to ignore it.",
+  "issues": {
+    "DEFAULT_TITLE": "Please update the title to include a name or short description, rather than leaving it as the default. Ex: `[Effect Suggestion] Teleport Player to Location`",
+    "MISSING_TAG": "Your issue title is missing the tag. Please update it to add one of `[Effect Suggestion]`, `[Feature Suggestion]`, or `[Bug]` to the beginning.",
+    "BAD_TAG": "The tag at the beginning of your title doesn't seem right. Please update it to add one of `[Effect Suggestion]`, `[Feature Suggestion]`, or `[Bug]` to the beginning.",
+    "OVERUSED_EFFECT": "You may have suggested an effect that gets suggested frequently. Please know that your suggestion may be closed without further warning.",
+    "CONTENT_CREATOR": "Your suggestion seems to include the name of a known content creator. Please know that we do not take content creator-specific effect suggestions, and your suggestion may be closed without further warning.",
+    "EMPTY_TITLE": "Your issue title is empty! Please update it to have a name or brief description, in addition to the tag."
+  },
+  "issueType": {
+    "EFFECT": "effect suggestion",
+    "FEATURE": "feature request",
+    "BUG": "bug report"
+  }
+}
