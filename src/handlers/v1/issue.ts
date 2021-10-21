@@ -25,8 +25,18 @@ const doPostComment = async (data: Issue, body: string): Promise<void> => {
 
 const handler = async (data: Issue): Promise<void> => {
   if (process.env.NODE_ENV !== 'production') {
+    console.log('Loading dotenv...');
     // eslint-disable-next-line unicorn/prefer-module, @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-call
     require('dotenv').config();
+  }
+
+  if (process.env.GH_ACCESS_TOKEN) {
+    console.log(
+      'Using token',
+      (process.env.GH_ACCESS_TOKEN ?? 'null').slice(0, 12) + '...',
+    );
+  } else {
+    throw new Error('Missing GH_ACCESS_TOKEN environment variable.');
   }
 
   const details = getIssueDetails(data);

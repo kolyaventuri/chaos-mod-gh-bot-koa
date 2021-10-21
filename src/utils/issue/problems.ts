@@ -18,8 +18,8 @@ export const getIssueProblems = ({
   body,
   type,
 }: GetIssueProblemsArgs): IssueProblem[] => {
-  title = title.toLowerCase().replace(/\s+/g, ' ').trim();
-  body = body.toLowerCase().replace(/\s+/g, ' ');
+  title = title?.toLowerCase().replace(/\s+/g, ' ').trim() ?? '';
+  body = body?.toLowerCase().replace(/\s+/g, ' ') ?? '';
 
   const combined = `${title}${body}`.replace(/\s+/g, '');
   const statuses: IssueProblem[] = [];
